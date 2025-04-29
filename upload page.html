@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Book - OpenLibrary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-2xl">
+    <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">Upload Your Book</h2>
+
+    <form class="space-y-6">
+      
+      <!-- Title -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-semibold">Book Title</label>
+        <input type="text" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter book title">
+      </div>
+
+      <!-- Author -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-semibold">Author Name</label>
+        <input type="text" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter author name">
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-semibold">Short Description</label>
+        <textarea class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4" placeholder="Write a short description about the book"></textarea>
+      </div>
+
+      <!-- Upload PDF -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-semibold">Upload PDF</label>
+        <input type="file" accept="application/pdf" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+
+      <!-- Free or Paid Selection -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-semibold">Is it Free or Paid?</label>
+        <div class="flex items-center space-x-6">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="pricing" value="free" class="h-5 w-5 text-blue-600">
+            <span>Free</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="pricing" value="paid" class="h-5 w-5 text-blue-600">
+            <span>Paid</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Price Input (Optional) -->
+      <div id="priceField" class="hidden">
+        <label class="block mt-4 mb-2 text-gray-700 font-semibold">Price (in ₹)</label>
+        <input type="number" min="1" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter price">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
+          Submit Book
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Small Script to show/hide price input -->
+  <script>
+    const pricingOptions = document.querySelectorAll('input[name="pricing"]');
+    const priceField = document.getElementById('priceField');
+
+    pricingOptions.forEach(option => {
+      option.addEventListener('change', () => {
+        if (option.value === 'paid' && option.checked) {
+          priceField.classList.remove('hidden');
+        } else if (option.value === 'free' && option.checked) {
+          priceField.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
