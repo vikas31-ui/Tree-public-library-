@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenLibrary</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+    <div class="text-2xl font-bold text-blue-600">OpenLibrary</div>
+    <div class="space-x-6">
+      <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">Free Books</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">Paid Books</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">Upload</a>
+      <a href="#" class="text-blue-600 font-semibold">Login/Signup</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 bg-blue-50">
+    <h1 class="text-4xl font-bold mb-4">Share & Discover Books Freely</h1>
+    <p class="text-gray-600 mb-6">Upload your books or explore thousands of free and paid PDFs.</p>
+    <div class="space-x-4">
+      <button class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">Explore Library</button>
+      <button class="bg-gray-200 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-300">Upload Your Book</button>
+    </div>
+  </section>
+
+  <!-- Search Bar -->
+  <div class="flex justify-center mt-10">
+    <input type="text" placeholder="Search books..." class="w-1/2 p-3 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+  </div>
+
+  <!-- Categories Tabs -->
+  <div class="flex justify-center mt-10 space-x-6">
+    <button class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-2">Free Books</button>
+    <button class="text-gray-600 hover:text-blue-600 pb-2">Paid Books</button>
+  </div>
+
+  <!-- Book Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
+    <!-- Book Card -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="h-40 bg-gray-100 flex items-center justify-center rounded mb-4">
+        <span class="text-gray-400">PDF Cover</span>
+      </div>
+      <h2 class="text-lg font-semibold mb-2">Book Title</h2>
+      <p class="text-gray-500 mb-4">Author Name</p>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Download</button>
+    </div>
+
+    <!-- Repeat Book Cards -->
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 py-6">
+    &copy; 2025 OpenLibrary | About | Contact | Terms | Privacy
+  </footer>
+
+</body>
+</html>
