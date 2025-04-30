@@ -1,24 +1,178 @@
-<section class="px-6 py-10">
-  <h2 class="text-2xl font-bold mb-4">Arts & Entertainment</h2>
-  <div class="flex overflow-x-auto space-x-4 pb-4">
-    
-    <!-- Book Card -->
-    <div class="min-w-[160px] bg-white rounded-lg shadow-md p-2">
-      <img src="book1.jpg" alt="Book 1" class="w-full h-48 object-cover rounded">
-      <h3 class="text-sm mt-2 font-semibold">Free Fire Ultimate Guide</h3>
-      <p class="text-xs line-through text-gray-400">₹49.00</p>
-      <p class="text-sm font-bold text-red-600">₹10.00</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Books Library</title>
+    <style>
+        /* Basic Styling - You can move this to a separate style.css file */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-    <!-- Book Card -->
-    <div class="min-w-[160px] bg-white rounded-lg shadow-md p-2">
-      <img src="book2.jpg" alt="Book 2" class="w-full h-48 object-cover rounded">
-      <h3 class="text-sm mt-2 font-semibold">10 Principles To Beat Failure</h3>
-      <p class="text-xs line-through text-gray-400">₹64.90</p>
-      <p class="text-sm font-bold text-red-600">₹5.00</p>
-    </div>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
 
-    <!-- Add more book cards similarly -->
-    
-  </div>
-</section>
+        /* Link back to home (optional) */
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+         header a:hover {
+            text-decoration: underline;
+        }
+
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .book-list {
+            display: grid;
+            /* Adjust columns based on screen size */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px; /* Space between book items */
+            padding: 0;
+            list-style: none; /* Remove default list styling if using <ul> */
+        }
+
+        .book-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fff;
+            text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: space-between; /* Pushes button to bottom */
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-item img.cover {
+            max-width: 100%;
+            height: 200px; /* Fixed height for covers */
+            object-fit: contain; /* Scale image while preserving aspect ratio */
+            margin-bottom: 15px;
+            border-radius: 4px;
+            background-color: #eee; /* Placeholder background if image missing */
+        }
+
+        .book-item h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+            min-height: 2.4em; /* Prevent layout shifts if titles wrap */
+        }
+
+        .book-item p.description {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .book-item a.download-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            margin-top: auto; /* Pushes button to the bottom */
+        }
+
+        .book-item a.download-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">Home</a>
+        <span>Free Books</span>
+        </header>
+
+    <main>
+        <h1 class="page-title">Our Free Book Library</h1>
+
+        <div class="book-list">
+
+            <div class="book-item">
+                <img src="images/placeholder-cover.png" alt="Book Cover 1" class="cover">
+                <h3>Sample Book Title One</h3>
+                <p class="description">A short description of the first amazing free book goes here. Mention the author or key topics.</p>
+                <a href="books/book1.pdf" class="download-button" target="_blank" rel="noopener noreferrer">
+                    Read / Download PDF
+                </a>
+            </div>
+            <div class="book-item">
+                 <img src="images/placeholder-cover-2.png" alt="Book Cover 2" class="cover">
+                <h3>Another Great Book Title</h3>
+                <p class="description">Brief overview of the second book available for free download. Highlight what makes it interesting.</p>
+                <a href="books/book2.pdf" class="download-button" target="_blank" rel="noopener noreferrer">
+                    Read / Download PDF
+                </a>
+            </div>
+            <div class="book-item">
+                <img src="images/placeholder-cover-3.png" alt="Book Cover 3" class="cover">
+                <h3>The Third Free PDF</h3>
+                <p class="description">This is the third book. Add a compelling summary to encourage downloads.</p>
+                <a href="books/book3.pdf" class="download-button" target="_blank" rel="noopener noreferrer">
+                     Read / Download PDF
+                </a>
+            </div>
+            <div class="book-item">
+                 <h3>Book Without Cover</h3>
+                <p class="description">This book doesn't have a cover image, but it's still available for download!</p>
+                <a href="books/book4.pdf" class="download-button" target="_blank" rel="noopener noreferrer">
+                     Read / Download PDF
+                </a>
+            </div>
+
+
+        </div> </main>
+
+    <footer>
+        <p>&copy; 2025 Your Website Name. All Rights Reserved.</p>
+        </footer>
+
+</body>
+</html>
