@@ -1,87 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Upload Book - OpenLibrary</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SkyPhantom — Turbojet Booster + Ramjet Cross-section</title>
+  <style>
+    body{font-family:Inter,system-ui,Arial;margin:12px;background:#0b1220;color:#e6eef8}
+    .card{background:#071025;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.6);max-width:980px}
+    h1{font-size:18px;margin:0 0 8px}
+    p{margin:6px 0 14px;color:#bcd3ee}
+    svg{width:100%;height:auto}
+    .note{font-size:12px;color:#9fb6d9}
+  </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<body>
+  <div class="card">
+    <h1>SkyPhantom — Turbojet Booster + Ramjet Cross-section (concept)</h1>
+    <p>2D longitudinal cross-section showing inlet → turbo core → transition/bypass → ram combustor → nozzle. All dimensions are conceptual and in millimetres (mm).</p><!-- SVG schematic -->
+<svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
+  <title>Turbojet + Ramjet cross-section</title>
 
-  <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-2xl">
-    <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">Upload Your Book</h2>
+  <!-- Fuselage outer shape -->
+  <path d="M20 180 Q60 60 200 60 L980 60 Q1120 60 1180 180 Q1120 300 980 300 L200 300 Q60 300 20 180 Z" fill="#081525" stroke="#12314b" stroke-width="2"/>
 
-    <form class="space-y-6">
-      
-      <!-- Title -->
-      <div>
-        <label class="block mb-2 text-gray-700 font-semibold">Book Title</label>
-        <input type="text" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter book title">
-      </div>
+  <!-- Centerline -->
+  <line x1="60" y1="180" x2="1140" y2="180" stroke="#1f6aa6" stroke-width="1" stroke-dasharray="4 6" />
 
-      <!-- Author -->
-      <div>
-        <label class="block mb-2 text-gray-700 font-semibold">Author Name</label>
-        <input type="text" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter author name">
-      </div>
+  <!-- Inlet cone / spike -->
+  <polygon points="80,140 220,180 80,220" fill="#184a6f" stroke="#2ea0ff" stroke-width="1" />
+  <text x="110" y="132" fill="#cfe9ff" font-size="12">Inlet / spike</text>
+  <text x="110" y="148" fill="#9fb6d9" font-size="10">(mixed compression)</text>
 
-      <!-- Description -->
-      <div>
-        <label class="block mb-2 text-gray-700 font-semibold">Short Description</label>
-        <textarea class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4" placeholder="Write a short description about the book"></textarea>
-      </div>
+  <!-- Diffuser / plenum -->
+  <rect x="230" y="145" width="140" height="70" fill="#0f3d52" stroke="#66b0e8" stroke-width="1"/>
+  <text x="260" y="165" fill="#cfe9ff" font-size="12">Diffuser / Plenum</text>
 
-      <!-- Upload PDF -->
-      <div>
-        <label class="block mb-2 text-gray-700 font-semibold">Upload PDF</label>
-        <input type="file" accept="application/pdf" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
-      </div>
+  <!-- Turbo core - compressor -->
+  <g>
+    <ellipse cx="420" cy="180" rx="60" ry="40" fill="#264a6a" stroke="#7fc2ff" stroke-width="1"/>
+    <text x="380" y="175" fill="#cfe9ff" font-size="12">Compressor</text>
+  </g>
 
-      <!-- Free or Paid Selection -->
-      <div>
-        <label class="block mb-2 text-gray-700 font-semibold">Is it Free or Paid?</label>
-        <div class="flex items-center space-x-6">
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="pricing" value="free" class="h-5 w-5 text-blue-600">
-            <span>Free</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="pricing" value="paid" class="h-5 w-5 text-blue-600">
-            <span>Paid</span>
-          </label>
-        </div>
-      </div>
+  <!-- Combustion chamber (turbo mode) -->
+  <rect x="500" y="140" width="140" height="80" fill="#3a2b2b" stroke="#ffb38b" stroke-width="1"/>
+  <text x="520" y="170" fill="#ffd9bf" font-size="12">Turbo Combustor</text>
 
-      <!-- Price Input (Optional) -->
-      <div id="priceField" class="hidden">
-        <label class="block mt-4 mb-2 text-gray-700 font-semibold">Price (in ₹)</label>
-        <input type="number" min="1" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter price">
-      </div>
+  <!-- Turbine -->
+  <g>
+    <ellipse cx="680" cy="180" rx="60" ry="40" fill="#3b2637" stroke="#ff9fb0" stroke-width="1"/>
+    <text x="650" y="175" fill="#ffd9bf" font-size="12">Turbine</text>
+  </g>
 
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700">
-          Submit Book
-        </button>
-      </div>
+  <!-- Transition valve / bypass -->
+  <rect x="760" y="150" width="80" height="60" fill="#143e48" stroke="#7ee6d6" stroke-width="1"/>
+  <text x="770" y="165" fill="#bfeee2" font-size="11">Bypass valve</text>
+  <text x="770" y="180" fill="#9fb6d9" font-size="10">(servo actuated)</text>
 
-    </form>
+  <!-- Ram combustor chamber -->
+  <rect x="860" y="120" width="220" height="120" fill="#3b2f1e" stroke="#ffd67a" stroke-width="1"/>
+  <text x="930" y="155" fill="#ffecc9" font-size="12">Ram Combustor</text>
+  <text x="930" y="170" fill="#d1c39a" font-size="10">(flame holders & injectors)</text>
+
+  <!-- Nozzle -->
+  <path d="M1080 150 L1160 150 L1140 210 L1080 210 Z" fill="#2b2b2b" stroke="#ffcc99" stroke-width="1"/>
+  <text x="1100" y="190" fill="#ffd9bf" font-size="11">Nozzle</text>
+
+  <!-- Flow arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#aee3ff" />
+    </marker>
+  </defs>
+  <path d="M120 180 L850 180" stroke="#9fd6ff" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+  <text x="300" y="200" fill="#bfe6ff" font-size="11">Air / flow path</text>
+
+  <!-- Dimensions (conceptual) -->
+  <line x1="80" y1="260" x2="300" y2="260" stroke="#7fb1d7" stroke-width="1" />
+  <line x1="80" y1="255" x2="80" y2="265" stroke="#7fb1d7" />
+  <line x1="300" y1="255" x2="300" y2="265" stroke="#7fb1d7" />
+  <text x="130" y="278" fill="#a9d3f8" font-size="11">Inlet+diffuser ≈ 220 mm</text>
+
+  <line x1="380" y1="260" x2="740" y2="260" stroke="#7fb1d7" stroke-width="1" />
+  <line x1="380" y1="255" x2="380" y2="265" stroke="#7fb1d7" />
+  <line x1="740" y1="255" x2="740" y2="265" stroke="#7fb1d7" />
+  <text x="460" y="278" fill="#a9d3f8" font-size="11">Turbo core (compressor+combustor+turbine) ≈ 360 mm</text>
+
+  <line x1="760" y1="288" x2="1160" y2="288" stroke="#7fb1d7" stroke-width="1" />
+  <line x1="760" y1="283" x2="760" y2="293" stroke="#7fb1d7" />
+  <line x1="1160" y1="283" x2="1160" y2="293" stroke="#7fb1d7" />
+  <text x="840" y="308" fill="#a9d3f8" font-size="11">Transition + ram combustor + nozzle ≈ 400 mm</text>
+
+  <!-- Labels for mass-sensitive zones -->
+  <rect x="200" y="40" width="760" height="18" fill="#061827" stroke="#12365a"/>
+  <text x="220" y="54" fill="#8fd3ff" font-size="12">Mass-sensitive zones: minimize wall thickness, use titanium/inconel for hot sections and carbon fiber for structure</text>
+
+</svg>
+
+<p class="note">If you want, I can export this as an SVG/PNG file and provide exact mm dimensions for CNC/CAD. Tell me if you want different scale or two-engine layout.</p>
+
   </div>
-
-  <!-- Small Script to show/hide price input -->
-  <script>
-    const pricingOptions = document.querySelectorAll('input[name="pricing"]');
-    const priceField = document.getElementById('priceField');
-
-    pricingOptions.forEach(option => {
-      option.addEventListener('change', () => {
-        if (option.value === 'paid' && option.checked) {
-          priceField.classList.remove('hidden');
-        } else if (option.value === 'free' && option.checked) {
-          priceField.classList.add('hidden');
-        }
-      });
-    });
-  </script>
-
 </body>
 </html>
